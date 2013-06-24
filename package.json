@@ -1,0 +1,29 @@
+{
+    "name": "offset-buffer",
+    "version": "0.0.1",
+    "author": "Matan Amir <github-contrib@ematan.com> (http://www.n0tw0rthy.com)",
+    "description": "Node.js Buffer wrapper that keeps track of your read and write offsets",
+    "main": "index.js",
+    "dependencies": {
+        "int24": "*",
+        "ref": "*"
+    },
+    "devDependencies": {
+        "tap": "*"
+    },
+    "license": {
+        "type": "MIT",
+        "url": "https://github.com/matanamir/offset-buffer/raw/master/LICENSE"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:matanamir/offset-buffer.git"
+    },
+    "scripts": {
+        "test": "node test/offset-buffer-test.js"
+    },
+    "keywords": [
+        "offset",
+        "buffer"
+    ]
+}

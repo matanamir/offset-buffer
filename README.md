@@ -1,5 +1,7 @@
 # offset-buffer
 
+[![Build Status](https://travis-ci.org/matanamir/offset-buffer.png)](https://travis-ci.org/matanamir/offset-buffer)
+
 Node.js Buffer wrapper that keeps track of your read and write offsets.
 
 It also includes support for reading and writing

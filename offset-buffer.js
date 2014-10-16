@@ -19,7 +19,12 @@ module.exports = function(ref, int24, logger) {
 
     // Basic Buffer functionality ----------------------------
 
-    OffsetBuffer.prototype.writeInt8 = function(value) {
+    OffsetBuffer.prototype.writeUInt8 = function(value) {
+        this.buf.writeInt8(value, this.write_offset);
+        this.write_offset += 1;
+    };
+    
+    OffsetBuffer.prototype.writeUInt8 = function(value) {
         this.buf.writeInt8(value, this.write_offset);
         this.write_offset += 1;
     };
@@ -69,6 +74,12 @@ module.exports = function(ref, int24, logger) {
         this.read_offset += 1;
         return result;
     };
+    
+    OffsetBuffer.prototype.readUInt8() = function() {
+        var result = this.buf.readUInt8(this.read_offset);
+        this.read_offset += 1;
+        return result;
+	}
 
     OffsetBuffer.prototype.readInt16BE = function() {
         var result = this.buf.readInt16BE(this.read_offset);

@@ -75,7 +75,7 @@ module.exports = function(ref, int24, logger) {
         return result;
     };
     
-    OffsetBuffer.prototype.readUInt8() = function() {
+    OffsetBuffer.prototype.readUInt8 = function() {
         var result = this.buf.readUInt8(this.read_offset);
         this.read_offset += 1;
         return result;

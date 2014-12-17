@@ -23,6 +23,11 @@ module.exports = function(ref, int24, logger) {
         this.buf.writeInt8(value, this.write_offset);
         this.write_offset += 1;
     };
+    
+    OffsetBuffer.prototype.writeUInt8 = function(value) {
+        this.buf.writeUInt8(value, this.write_offset);
+        this.write_offset += 1;
+    };
 
     OffsetBuffer.prototype.writeInt16BE = function(value) {
         this.buf.writeInt16BE(value, this.write_offset);
@@ -66,6 +71,12 @@ module.exports = function(ref, int24, logger) {
 
     OffsetBuffer.prototype.readInt8 = function() {
         var result = this.buf.readInt8(this.read_offset);
+        this.read_offset += 1;
+        return result;
+    };
+    
+    OffsetBuffer.prototype.readUInt8 = function() {
+        var result = this.buf.readUInt8(this.read_offset);
         this.read_offset += 1;
         return result;
     };

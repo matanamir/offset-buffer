@@ -41,6 +41,14 @@ test('writeInt8', function(t) {
     t.end();
 });
 
+test('writeUInt8', function(t) {
+    var b = new OffsetBuffer(1);
+    b.writeUInt8(0xfe);
+    t.equal(b.buf[0], 0xfe, 'writeUInt8: Written data matches');
+    t.equal(b.write_offset, 1, 'writeUInt8: write offset correct');
+    t.end();
+});
+
 test('writeInt16BE', function(t) {
     var b = new OffsetBuffer(2);
     b.writeInt16BE(0x04);
@@ -175,6 +183,14 @@ test('readInt8', function(t) {
     t.equal(b.read_offset, 1, 'readInt8: read offset correct');
     t.end();
 });
+
+test('readUInt8', function(t) {
+    var b = new OffsetBuffer([0xfe]);
+    t.equal(b.readUInt8(), 0xfe, 'readInt8: Read data matches');
+    t.equal(b.read_offset, 1, 'readInt8: read offset correct');
+    t.end();
+});
+
 
 test('readInt16BE', function(t) {
     var b = new OffsetBuffer([0x04, 0x05]);
@@ -342,13 +358,3 @@ test('copyTo', function(t) {
     t.equal(from.read_offset, 5, 'copyTo: read offset at the end of the buffer');
     t.end();
 });
-
-
-
-
-
-
-
-
-
-
